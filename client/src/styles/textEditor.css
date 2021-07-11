@@ -1,0 +1,23 @@
+.rdw-editor-toolbar{
+    background-color: rgba(182, 173, 173, 0.3);
+    display: flex;
+    width: 50%;
+    margin: 60px auto;
+    height: 40px;
+    align-items: center;
+}
+.rdw-editor-toolbar div{
+    margin: 0 auto;
+}
+
+.rdw-editor-main{
+    background-color: rgba(238, 225, 225, 0.3);
+    border: 1px solid black;
+    padding: 25px;
+    min-height: 350px;
+    margin-bottom: 40px;
+}
+
+.rdw-fontfamily-placeholder{
+    display: none;
+}

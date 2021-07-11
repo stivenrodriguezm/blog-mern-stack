@@ -39,12 +39,15 @@ const Header = (props) => {
             <nav id="header">
                 <div className="header-left">
                     <Link to="/">Index</Link>
+                    <Link to="/posts"> Posts</Link>
                 </div>
                 <div className="header-center">
 
                 </div>
                 <div className="header-right">
                     {isAdmin ? <Link to="/admin">Admin</Link> : <div></div>}
+                    {token ? (decodedToken.exp < dateNow.getTime() ? <div></div> : <Link to="/MyPosts">My Posts</Link>) : <div></div>}
+                    {token ? (decodedToken.exp < dateNow.getTime() ? <div></div> : <Link to="/NewPost">New Post</Link>) : <div></div>}
                     {token ? (decodedToken.exp < dateNow.getTime() ? <div></div> : <Link to="/profile"> Profile</Link>) : <div></div>}
                     {token ? (decodedToken.exp < dateNow.getTime() ? <div></div> : <Link onClick={logout}>Logout</Link>) : <div></div>}
                     {token ? (decodedToken.exp < dateNow.getTime() ? <div></div> : <div></div>) : <Link to="/register">Register</Link>}

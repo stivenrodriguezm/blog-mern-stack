@@ -66,6 +66,16 @@ code {
   color: rgb(53, 53, 53);
 
 }
+/*
+.expiredToken{
+  border: 1px solid red;
+  position:fixed;
+  background-color:rgba(233, 41, 41,.3); 
+
+  height:100%;
+  width: 100%;
+  
+}
 
 /* Footer */
 
@@ -231,3 +241,37 @@ footer{
   text-align: center;
   font-size: 30px;
 }
+
+
+
+
+/***************************************************************/
+
+/* POSTS */
+
+.containerPostsVista{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.containerPostsVista h2{
+  width: 100%;
+}
+
+.postVista{
+  background-color: rgba(209, 209, 209, 0.3);
+  padding: 25px;
+  width: 25%;
+  margin: 25px auto;
+  height: 240px;
+  border-radius: 5px;
+}
+.postVista:last-of-type {
+  background-color: rgba(209, 209, 209, 0.3);
+  padding: 25px;
+  width: 25%;
+  margin: 25px auto 25px 25px;
+  height: 240px;
+  border-radius: 5px;
+}
+

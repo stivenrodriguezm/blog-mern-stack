@@ -45,6 +45,7 @@ const Admin = (props) => {
                         <th>Email</th>
                         <th>Rol</th>
                         <th>Description</th>
+                        <th>Posts</th>
                         <th>Edit</th>
                         <th>Remove</th>
                     </tr>
@@ -56,6 +57,7 @@ const Admin = (props) => {
                                 <td>{usuario.email}</td>
                                 <td>{usuario.role}</td>
                                 <td>Desc---</td>
+                                <td><Link to={`/postsFromAdmin/${usuario._id}`}>▀</Link></td>
                                 <td><Link to={`/editFromAdmin/${usuario._id}`}>▀</Link></td>
                                 <td id={usuario._id} onClick={deleteUser}>X</td>
                             </tr>

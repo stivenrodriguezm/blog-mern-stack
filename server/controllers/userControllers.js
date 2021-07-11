@@ -1,8 +1,8 @@
 const User = require("../models/UserModel")
+const Post = require("../models/BlogModel")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const jwt_decode = require('jwt-decode')
-const {URL} = require('url')
 
 //register
 
@@ -97,7 +97,6 @@ exports.getUserFromAdmin = async (req,res) => {
     
     const userInfo = await User.findById(id).select("-password")
     
-    console.log(userInfo)
     res.status(200).json({userInfo})
 }
 
@@ -118,5 +117,30 @@ exports.deleteUserFromAdmin = async (req,res) => {
     const splittedUrl = url.split("/")
     const id = splittedUrl[2]
 
+    await Post.deleteMany({authorId: id})
     await User.findByIdAndDelete(id)
+
+    res.status(200).json({message: "User and its posts deleted successfully"})
+}
+exports.deleteMyUser = async (req,res) => {
+    const token = req.headers.authorization.split(" ")[1]
+    const decodedId = jwt_decode(token)
+    const id = decodedId._id
+
+    await Post.deleteMany({authorId: id})
+    await User.findByIdAndDelete(id)
+
+    res.status(200).json({message: "Account successfully deleted"})
+}
+exports.getUserPostsFromAdmin = async (req,res) => {
+    const url = req.url
+    const splittedUrl = url.split("/")
+    const id = splittedUrl[2]
+    
+    const userPosts = await Post.find({authorId: id})
+
+    console.log(id)
+    console.log(userPosts)
+    
+    res.status(200).json({userPosts})
 }
